@@ -7,11 +7,13 @@ import 'package:survey_sphere_app/pages/welcome_page/welcome_page.variables.dart
 class WelcomePageController extends GetxController with WelcomePageVariables {
   init() {}
 
+
   setLanguage(String language) async{
 await SharedPreferance.setString(
       keyName: SharedPreferenceKey.language,
       value: language,
     );
-      Get.to(() => const EmailView());
+      Get.to(() => EmailView());
   }
+
 }
