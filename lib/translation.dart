@@ -9,14 +9,14 @@ class Messages extends Translations {
           'enter_your_email': 'Enter your email',
           'proceed': 'Proceed',
           'next_screen': 'Next Screen',
-          // ... other keys
+          
         },
         'Japanese': {
           'enter_email': 'メールを入力',
           'enter_your_email': 'あなたのメールを入力してください',
           'proceed': '進む',
           'next_screen': '次の画面',
-          // ... other keys
+          
         },
       };
 }

@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 mixin WelcomePageVariables {
   RxString selectedLanguage = 'English'.obs;
+  RxString email = ''.obs;
   Map value = {
     "Question ID": 1,
     "Pair ID": 1,
