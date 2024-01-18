@@ -28,14 +28,29 @@ class PdfView extends GetView<PdfController> {
                   print(data);
 
                   return Column(
-                    children: [
-                      ListTile(
-                        title: Text(data["Question Text"]),
-                      ),
-                      ListTile(
-                        title: Text(data["answer"]),
-                      ),
-                    ],
+                    children: List.generate(
+                      controller.finalResponseList.length,
+                      (index) {
+                        var data = controller.finalResponseList[index];
+
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 20),
+                            Text(
+                              'Question ${index + 1}: ${data["Question Text"]}',
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 20),
+                            Text('Answer: ${data["answer"]}'),
+                            const SizedBox(
+                                height:
+                                    10), // Add spacing between question-answer pairs
+                          ],
+                        );
+                      },
+                    ),
                   );
                 },
               ),
