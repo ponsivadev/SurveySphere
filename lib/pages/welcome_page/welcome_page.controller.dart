@@ -15,5 +15,11 @@ await SharedPreferance.setString(
     );
       Get.to(() => EmailView());
   }
+   setEmail(String email)async{
+   await SharedPreferance.setString(
+      keyName: SharedPreferenceKey.email,
+      value: email ,
+    );
+   }
 
 }
