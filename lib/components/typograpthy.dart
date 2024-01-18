@@ -10,11 +10,11 @@ class AppTypograpthy {
       fontStyle: FontStyle.normal,
       fontSize: 28.0,
       fontFamily: baseFont,
-      fontWeight: FontWeight.w300);
+      fontWeight: FontWeight.w600);
 
   static TextStyle appNameTextStyle = const TextStyle(
     fontSize: 22,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w500,
     fontFamily: baseFont,
   );
 }
