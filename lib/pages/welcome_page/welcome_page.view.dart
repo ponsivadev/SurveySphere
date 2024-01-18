@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:survey_sphere_app/components/colors.dart';
 import 'package:survey_sphere_app/components/constants.dart';
-import 'package:survey_sphere_app/components/shared_preferance.dart';
 import 'package:survey_sphere_app/components/strings.dart';
 import 'package:survey_sphere_app/components/typograpthy.dart';
 import 'package:survey_sphere_app/pages/welcome_page/welcome_page.controller.dart';
@@ -12,7 +11,6 @@ import 'package:survey_sphere_app/pages/welcome_page/welcome_page.controller.dar
 class WelcomePageView extends GetResponsiveView<WelcomePageController> {
   WelcomePageView({super.key, this.hintText}) {
     Get.lazyPut(() => WelcomePageController());
-    SharedPreferance.clearSharedPreferance();
   }
   String? hintText;
   @override
