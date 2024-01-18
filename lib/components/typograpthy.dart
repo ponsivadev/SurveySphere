@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:survey_sphere_app/components/colors.dart';
 
-class Typograpthy {
+class AppTypograpthy {
   static const String baseFont = 'OpenSans';
 
   static TextStyle mediumBoldTitle = TextStyle(
