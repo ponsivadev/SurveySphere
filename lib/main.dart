@@ -4,9 +4,11 @@ import 'package:get/get.dart';
 import 'package:survey_sphere_app/pages/welcome_page/welcome_page.view.dart';
 
 void main() {
-   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.white, // Change this color to your desired status bar color
-    ));
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor:
+        Colors.white, // Change this color to your desired status bar color
+  ));
   runApp(const MyApp());
 }
 

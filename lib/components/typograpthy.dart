@@ -17,4 +17,9 @@ class AppTypograpthy {
     fontWeight: FontWeight.w500,
     fontFamily: baseFont,
   );
+  static TextStyle appNameTextStyleSmall = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    fontFamily: baseFont,
+  );
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:survey_sphere_app/components/colors.dart';
+import 'package:survey_sphere_app/pages/pdfViewer/success_view.dart';
 
 class RankingPage extends StatefulWidget {
   @override
@@ -31,7 +33,8 @@ class _RankingPageState extends State<RankingPage> {
       _items.insert(newIndex, item);
     });
   }
- @override
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgGrey,
@@ -89,6 +92,7 @@ class _RankingPageState extends State<RankingPage> {
         backgroundColor: AppColors.primaryOrange,
         child: Icon(Icons.check, color: Colors.white),
         onPressed: () {
+          Get.to(SuccessPage());
           // Submit ranking data
         },
       ),

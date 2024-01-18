@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:survey_sphere_app/components/constants.dart';
 import 'package:survey_sphere_app/components/shared_preferance.dart';
 import 'package:survey_sphere_app/components/shared_preferance_key.dart';
+import 'package:survey_sphere_app/pages/final_question_view.dart';
 import 'package:survey_sphere_app/pages/question_page/question_page.variables.dart';
 
 class QuestionPageController extends GetxController with QuestionPageVariables {
@@ -20,7 +21,7 @@ class QuestionPageController extends GetxController with QuestionPageVariables {
 
   nextPage(question1, question2, pairId, questionText) async {
     if (responseList.length - 1 == selectedPageIndex.value) {
-      return;
+      Get.to(RankingPage());
     } else {
       selectedPageIndex.value++;
       finalResponseList.add({
