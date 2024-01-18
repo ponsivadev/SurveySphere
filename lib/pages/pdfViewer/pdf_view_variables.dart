@@ -10,4 +10,5 @@ mixin pdfVariables {
     'Quisque in libero sed est vulputate feugiat in quis elit. Ut ultricies arcu a velit vulputate, ac tincidunt libero tincidunt. Suspendisse potenti.',
   ];
   RxList finalResponseList = [].obs;
+  String emailValue = "";
 }

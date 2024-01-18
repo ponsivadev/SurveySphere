@@ -25,7 +25,6 @@ class PdfView extends GetView<PdfController> {
                 itemCount: controller.finalResponseList.length,
                 itemBuilder: (context, index) {
                   var data = controller.finalResponseList[index];
-                  print(data);
 
                   return Column(
                     children: List.generate(
@@ -55,7 +54,7 @@ class PdfView extends GetView<PdfController> {
                 },
               ),
             ),
-            // "Done" button
+
             Padding(
               padding: const EdgeInsets.only(bottom: 50),
               child: ElevatedButton(

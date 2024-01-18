@@ -5,7 +5,11 @@ import 'package:mailer/smtp_server.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:survey_sphere_app/components/shared_preferance_key.dart';
+import 'package:survey_sphere_app/pages/question_page/question_page.bindings.dart';
 import 'package:survey_sphere_app/pages/question_page/question_page.controller.dart';
+import 'package:survey_sphere_app/pages/welcome_page/welcome_page.view.dart';
 import 'pdf_view_variables.dart';
 
 class PdfController extends GetxController with pdfVariables {
@@ -33,11 +37,10 @@ class PdfController extends GetxController with pdfVariables {
     await file.writeAsBytes(pdfBytes);
     final smtpServer = gmail('developer@agilecyber.com', 'sleiemskccrmtmdc');
     final message = Message()
-      ..from = const Address("developer@agilecyber.com", 'Your name')
-      ..recipients.add('abishek@agilecyber.com')
-      ..subject = 'Test Dart Mailer library :: 😀 :: ${DateTime.now()}'
+      ..from = const Address("developer@agilecyber.com", 'Agile Cyber')
+      ..recipients.add(emailValue)
+      ..subject = 'Survery from surverySphere :: 😀 :: ${DateTime.now()}'
       ..text = 'This is the plain text.\nThis is line 2 of the text part.'
-      ..html = "<h1>Test</h1>\n<p>Hey! Here's some HTML content</p>"
       ..attachments = [
         FileAttachment(File(tempFilePath))
           ..location = Location.inline
@@ -45,16 +48,20 @@ class PdfController extends GetxController with pdfVariables {
       ];
 
     try {
-      final sendReport = await send(message, smtpServer);
-      print('Message sent');
+      await send(message, smtpServer);
+      Get.offAll(WelcomePageView(), binding: HomePageBinding());
     } on MailerException catch (e) {
       print('Message not sent. ${e.message}');
     }
   }
 
-  init() {
+  init() async {
     Get.put(QuestionPageController());
     var response = Get.find<QuestionPageController>().finalResponseList;
     finalResponseList.value = response;
+
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    var email = preferences.getString(SharedPreferenceKey.email);
+    emailValue = email.toString();
   }
 }
