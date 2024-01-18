@@ -12,7 +12,6 @@ class EmailView extends GetView<WelcomePageController> {
   final formKey = GlobalKey<FormState>();
   
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
