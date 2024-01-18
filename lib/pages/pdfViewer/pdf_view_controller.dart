@@ -16,7 +16,7 @@ class PdfController extends GetxController with pdfVariables {
   Future<Uint8List> generatePdf() async {
     final pdf = pw.Document();
 
-    for (var str in stringList) {
+    for (var str in finalResponseList) {
       pdf.addPage(pw.Page(
         build: (pw.Context context) {
           return pw.Center(
