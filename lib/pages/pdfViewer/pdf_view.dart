@@ -25,22 +25,36 @@ class PdfView extends GetView<PdfController> {
                 itemCount: controller.finalResponseList.length,
                 itemBuilder: (context, index) {
                   var data = controller.finalResponseList[index];
-                  print(data);
 
                   return Column(
-                    children: [
-                      ListTile(
-                        title: Text(data["Question Text"]),
-                      ),
-                      ListTile(
-                        title: Text(data["answer"]),
-                      ),
-                    ],
+                    children: List.generate(
+                      controller.finalResponseList.length,
+                      (index) {
+                        var data = controller.finalResponseList[index];
+
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 20),
+                            Text(
+                              'Question ${index + 1}: ${data["Question Text"]}',
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(height: 20),
+                            Text('Answer: ${data["answer"]}'),
+                            const SizedBox(
+                                height:
+                                    10), // Add spacing between question-answer pairs
+                          ],
+                        );
+                      },
+                    ),
                   );
                 },
               ),
             ),
-            // "Done" button
+
             Padding(
               padding: const EdgeInsets.only(bottom: 50),
               child: ElevatedButton(
