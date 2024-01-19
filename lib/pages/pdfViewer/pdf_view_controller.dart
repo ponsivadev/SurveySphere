@@ -16,11 +16,21 @@ class PdfController extends GetxController with pdfVariables {
   Future<Uint8List> generatePdf() async {
     final pdf = pw.Document();
 
-    for (var str in finalResponseList) {
+    for (var responseMap in finalResponseList) {
       pdf.addPage(pw.Page(
         build: (pw.Context context) {
-          return pw.Center(
-            child: pw.Text(str),
+          return pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.SizedBox(height: 20),
+              pw.Text(
+                'Question ${finalResponseList.indexOf(responseMap) + 1}: ${responseMap["Question Text"]}',
+                style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
+              ),
+              pw.SizedBox(height: 20),
+              pw.Text('Answer: ${responseMap["answer"]}'),
+              pw.SizedBox(height: 10),
+            ],
           );
         },
       ));
